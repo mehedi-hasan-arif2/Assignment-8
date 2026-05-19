@@ -1,10 +1,11 @@
 import courses from '@/data/courses.json';
-import { Sparkles, Star, ArrowRight } from 'lucide-react';
+import { Sparkles, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import CourseCard from '@/components/CourseCard';
 
 export default function HomePage() {
-  const popularCourses = courses.slice(0, 3);
+const popularCourses = [...courses].sort((a, b) => b.rating - a.rating).slice(0, 3);
 
   return (
     <div className="bg-[#0b0f19] text-white">
@@ -39,21 +40,7 @@ export default function HomePage() {
         <h2 className="text-4xl font-bold mb-16 text-center">🔥 Popular Courses</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {popularCourses.map((course) => (
-            <div key={course.id} className="group bg-[#111625] rounded-xl border border-gray-800 overflow-hidden hover:border-transparent hover:bg-gradient-to-b hover:from-[#111625] hover:to-cyan-900/20 transition-all duration-300">
-              <div className="relative h-48 w-full overflow-hidden">
-                 <Image src={`/${course.image}`} alt={course.title} fill className="object-cover group-hover:scale-110 transition-transform duration-500" />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2 group-hover:text-cyan-400 transition-colors">{course.title}</h3>
-                <p className="text-gray-400 mb-4">{course.instructor}</p>
-                <div className="flex justify-between items-center">
-                  <span className="flex items-center gap-1 text-yellow-500"><Star size={16} fill="currentColor"/> {course.rating}</span>
-                  <button className="flex items-center gap-1 font-bold text-gray-300 group-hover:text-cyan-400 transition-colors">
-                    Details <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-                  </button>
-                </div>
-              </div>
-            </div>
+            <CourseCard key={course.id} course={course} />
           ))}
         </div>
       </section>

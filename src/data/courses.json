@@ -2,7 +2,7 @@
   {
     "id": 1,
     "title": "Complete Web Development Bootcamp",
-    "instructor": "John Doe",
+    "instructor": "Mehedi Hasan",
     "duration": "20 hours",
     "rating": 4.8,
     "level": "Beginner",
@@ -13,7 +13,7 @@
   {
     "id": 2,
     "title": "UI/UX Design Masterclass",
-    "instructor": "Jane Smith",
+    "instructor": "Tanjhil Mahmud",
     "duration": "15 hours",
     "rating": 4.9,
     "level": "Intermediate",
@@ -24,12 +24,45 @@
   {
     "id": 3,
     "title": "Digital Marketing Strategy",
-    "instructor": "Mike Ross",
+    "instructor": "Shaila Parveen",
     "duration": "12 hours",
     "rating": 4.7,
     "level": "Beginner",
     "description": "Boost your business with digital marketing.",
     "image": "course-marketing.jpg",
     "category": "Marketing"
+  },
+  {
+    "id": 4,
+    "title": "Data Science Fundamentals",
+    "instructor": "Rafiqul Islam",
+    "duration": "25 hours",
+    "rating": 5.0,
+    "level": "Beginner",
+    "description": "Learn data analysis and visualization.",
+    "image": "data science.jfif",
+    "category": "Development"
+  },
+  {
+    "id": 5,
+    "title": "Cybersecurity Essentials",
+    "instructor": "Karim Ahmed",
+    "duration": "18 hours",
+    "rating": 4.6,
+    "level": "Intermediate",
+    "description": "Protect systems and networks effectively.",
+    "image": "Cybersecurity Essentials.png",
+    "category": "Development"
+  },
+  {
+    "id": 6,
+    "title": "Graphic Design Basics",
+    "instructor": "Nusrat Jahan",
+    "duration": "10 hours",
+    "rating": 4.8,
+    "level": "Beginner",
+    "description": "Learn visual design principles from scratch.",
+    "image": "Graphic Design.webp",
+    "category": "Design"
   }
 ]
