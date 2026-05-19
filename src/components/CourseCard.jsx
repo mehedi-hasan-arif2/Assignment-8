@@ -1,10 +1,18 @@
+"use client";
 import Image from 'next/image';
 import Link from 'next/link';
 import { Star, ArrowRight } from 'lucide-react';
+import { motion } from "framer-motion";
 
 export default function CourseCard({ course }) {
   return (
-    <div className="group bg-[#111625] rounded-xl border border-gray-800 overflow-hidden hover:border-transparent hover:bg-gradient-to-b hover:from-[#111625] hover:to-cyan-900/20 transition-all duration-300">
+    <motion.div 
+      initial={{ opacity: 0, y: 20 }} 
+      whileInView={{ opacity: 1, y: 0 }} 
+      viewport={{ once: true }} 
+      transition={{ duration: 0.8 }} 
+      className="group bg-[#111625] rounded-xl border border-gray-800 overflow-hidden hover:border-transparent hover:bg-gradient-to-b hover:from-[#111625] hover:to-cyan-900/20 transition-all duration-300"
+    >
       <div className="relative h-48 w-full overflow-hidden">
         <Image src={`/${course.image}`} alt={course.title} fill className="object-cover group-hover:scale-110 transition-transform duration-500" />
       </div>
@@ -18,6 +26,6 @@ export default function CourseCard({ course }) {
           </Link>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

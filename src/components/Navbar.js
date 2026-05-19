@@ -32,7 +32,7 @@ export default function Navbar() {
           {["Home", "Courses", "My Profile"].map((item) => (
             <Link
               key={item}
-              href={item === "Home" ? "/" : `/${item.toLowerCase().replace(" ", "-")}`}
+              href={item === "Home" ? "/" : item === "My Profile" ? "/profile" : `/${item.toLowerCase()}`}
               className="relative group hover:text-white transition"
             >
               {item}
