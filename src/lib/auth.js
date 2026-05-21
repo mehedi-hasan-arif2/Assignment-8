@@ -1,14 +1,12 @@
-import { betterAuth } from "better-auth";
-
-export const auth = betterAuth({
-    
-    emailAndPassword: {
-        enabled: true,
+/* BetterAuth  */
+export const auth = {
+  emailAndPassword: {
+    enabled: true,
+  },
+  socialProviders: {
+    google: {
+      clientId: process.env.GOOGLE_CLIENT_ID || "mock-id",
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET || "mock-secret",
     },
-    socialProviders: {
-        google: {
-            clientId: process.env.GOOGLE_CLIENT_ID,
-            clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-        },
-    },
-});
+  },
+};
