@@ -8,7 +8,6 @@ export default function MainLayout({ children }) {
       <Navbar />
       <main className="pt-20">{children}</main>
       <Toaster position="top-right" richColors />
-      <Footer />
     </>
   );
 }

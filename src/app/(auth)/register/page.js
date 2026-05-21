@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { toast } from "react-hot-toast";
+import { toast } from "react-hot-toast"; 
 
 export default function RegisterPage() {
   const router = useRouter();
@@ -14,28 +14,27 @@ export default function RegisterPage() {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.password) {
       setError("Please fill in all required fields");
+      toast.error("Please fill in all required fields"); 
       return;
     }
-    
-    /* Save account details to local database */
     localStorage.setItem("registered_user", JSON.stringify(formData));
-    toast.success("Registration Successful! Please login.");
+    toast.success("Account created successfully!"); 
     router.push("/login");
   };
 
-  const handleGoogleLogin = () => {
-    /* Login via Google with clean profile icon placeholder */
+ const handleGoogleRegister = () => {
     const googleUser = { 
       name: "Google Explorer", 
       email: "google@test.com", 
-      photoUrl: "https://www.svgrepo.com/show/507442/user-circle.svg" 
+      photoUrl: "" 
     };
+    
     localStorage.setItem("user", JSON.stringify(googleUser));
     document.cookie = "isLoggedIn=true; path=/";
-    toast.success("Logged in with Google!");
+    
+    toast.success("Successfully registered with Google!");
     router.push("/");
   };
-
   return (
     <main className="min-h-screen bg-[#0b0f19] flex items-center justify-center px-4 pt-20">
       <div className="max-w-md w-full bg-[#111625] border border-gray-800 p-8 rounded-2xl space-y-6">

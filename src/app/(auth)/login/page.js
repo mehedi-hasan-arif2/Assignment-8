@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
-import { toast } from "react-hot-toast";
+import { toast } from "react-hot-toast"; 
 
 export default function LoginPage() {
   const router = useRouter();
@@ -20,36 +20,32 @@ export default function LoginPage() {
     if (registeredUser && registeredUser.email === formData.email && registeredUser.password === formData.password) {
       localStorage.setItem("user", JSON.stringify(registeredUser));
       document.cookie = "isLoggedIn=true; path=/";
-      toast.success(`Welcome back, ${registeredUser.name}!`);
+      toast.success("Login Successful!"); 
       router.push(callbackUrl);
     } else if (formData.email === "admin@test.com" && formData.password === "123456") {
-      /* Start of Demo Auth Logic */
-      const demoUser = { 
-        name: "Demo Student", 
-        email: "admin@test.com", 
-        photoUrl: "https://www.svgrepo.com/show/507442/user-circle.svg" 
-      };
+      const demoUser = { name: "Demo Student", email: "admin@test.com", photoUrl: "" };
       localStorage.setItem("user", JSON.stringify(demoUser));
       document.cookie = "isLoggedIn=true; path=/";
-      toast.success("Logged in successfully as Demo Admin!");
+      toast.success("Welcome, Admin!"); 
       router.push(callbackUrl);
     } else {
       setError("Invalid email or password. (Demo Hint: admin@test.com / 123456)");
-      toast.error("Login failed! Check your credentials.");
+      toast.error("Login Failed!"); 
     }
   };
 
   const handleGoogleLogin = () => {
-    /* Login via Google  */
     const googleUser = { 
       name: "Google Explorer", 
       email: "google@test.com", 
-      photoUrl: "https://www.svgrepo.com/show/507442/user-circle.svg" 
+      photoUrl: "" 
     };
+    
     localStorage.setItem("user", JSON.stringify(googleUser));
     document.cookie = "isLoggedIn=true; path=/";
-    toast.success("Successfully authenticated with Google!");
-    router.push(callbackUrl);
+    
+    toast.success("Successfully logged in with Google!");
+    router.push(callbackUrl || "/");
   };
 
   return (
@@ -80,7 +76,7 @@ export default function LoginPage() {
         </div>
 
         <button onClick={handleGoogleLogin} className="w-full py-3 bg-[#0b0f19] border border-gray-800 rounded-xl font-semibold flex items-center justify-center gap-2 hover:bg-gray-900 transition text-sm">
-          <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" className="w-4 h-4" /> Sign in with Google
+          <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" className="w-4 h-4" />Sign in with Google
         </button>
 
         <p className="text-center text-sm text-gray-400">New to SkillSphere? <Link href="/register" className="text-cyan-400 hover:underline">Register</Link></p>

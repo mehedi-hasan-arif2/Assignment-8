@@ -23,7 +23,7 @@ export default function UpdateProfilePage() {
       const parsed = JSON.parse(loggedInUser);
       const updatedUser = { ...parsed, name: formData.name, photoUrl: formData.photoUrl };
       
-      /* Save to Local DB and Sync across app */
+      /* Save to DB and Sync across app */
       localStorage.setItem("user", JSON.stringify(updatedUser));
       toast.success("Profile Updated Successfully!");
       router.push('/my-profile');
